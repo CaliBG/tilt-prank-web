@@ -76,6 +76,6 @@ test('Android APK download and iOS assisted installation notice', async ({page})
  const downloadEvent=page.waitForEvent('download');
  await page.locator('#apk-download').click();
  const download=await downloadEvent;
- expect(download.suggestedFilename()).toBe('WaiLi-Level-1.0.0.apk');
+ expect(download.suggestedFilename()).toBe('Measure-Level-1.0.1.apk');
  expect(await download.failure()).toBeNull();
 });
