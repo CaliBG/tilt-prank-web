@@ -3,3 +3,10 @@ test-results/
 playwright-report/
 .DS_Store
 .qa/
+.gradle/
+build/
+local.properties
+*.jks
+*.keystore
+*.p12
+*.password

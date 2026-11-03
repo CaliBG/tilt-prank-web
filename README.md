@@ -30,3 +30,11 @@
 
 - [W3C Device Orientation and Motion](https://www.w3.org/TR/orientation-event/)
 - [GitHub Pages 发布文档](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
+
+## 手机安装版
+
+网页顶部提供 [Android APK 下载](https://calibg.github.io/tilt-prank-web/downloads/WaiLi-Level-1.0.0.apk)。当前是已签名的 1.0.0 Release 版本，Android 8.0 及以上，安装后离线运行；原生源码在 `android/`。
+
+iOS 不上架 App Store，网页明确提示联系作者本人，由作者协助安装到 iPhone。
+
+安卓发布密钥不包含在仓库或公开下载中。APK 校验信息位于 `docs/downloads/SHA256SUMS.txt`。

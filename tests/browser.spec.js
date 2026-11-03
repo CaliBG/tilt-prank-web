@@ -69,3 +69,13 @@ test('desktop and narrow mobile remain usable', async ({page}) => {
  await expect(page.locator('#start-button')).toBeVisible();
  await page.screenshot({path:'.qa/narrow-mobile.png',fullPage:true});
 });
+test('Android APK download and iOS assisted installation notice', async ({page}) => {
+ await page.goto('/');
+ await expect(page.locator('.ios-install')).toContainText('不上架 App Store');
+ await expect(page.locator('.ios-install')).toContainText('请联系我本人');
+ const downloadEvent=page.waitForEvent('download');
+ await page.locator('#apk-download').click();
+ const download=await downloadEvent;
+ expect(download.suggestedFilename()).toBe('WaiLi-Level-1.0.0.apk');
+ expect(await download.failure()).toBeNull();
+});
