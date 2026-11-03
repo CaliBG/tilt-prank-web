@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f2e9">
+  <meta name="description" content="歪一点怎么了？一个过分宽容的水平仪。打开手机，来歪理研究所做个小实验。">
+  <title>歪理研究所 · 这很水平</title>
+  <link rel="icon" href="./assets/icon.png">
+  <link rel="apple-touch-icon" href="./assets/icon.png">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="./" aria-label="歪理研究所首页"><span class="brand-mark" aria-hidden="true">歪</span><span>歪理研究所<small>WAI LI LAB.</small></span></a>
+    <button class="text-button" id="about-button">使用说明 <span aria-hidden="true">↗</span></button>
+  </header>
+  <main>
+    <section class="intro" aria-labelledby="headline">
+      <p class="eyebrow">一个过分宽容的水平仪</p>
+      <h1 id="headline">歪一点，<br><span>怎么了？</span></h1>
+      <p class="intro-copy">世界不一定是平的。<br>但我们可以睁一只眼，闭一只眼。</p>
+      <div class="lab-note"><span class="note-arrow" aria-hidden="true">↳</span><p>把手机放平，再慢慢倾斜。<br><strong>看看它什么时候才肯承认。</strong></p></div>
+      <div class="desktop-footnote"><span>认真测量</span><span class="crossed">严谨结论</span><span>乐观解读</span></div>
+    </section>
+
+    <section class="experiment" aria-label="倾斜实验仪">
+      <div class="instrument" id="instrument" data-state="idle">
+        <div class="instrument-top"><span>水平鉴定中<span class="blink" aria-hidden="true">_</span></span><span id="mode-tag">等待开工</span></div>
+        <div class="dial" id="dial" aria-hidden="true">
+          <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
+          <span class="axis axis-h"></span><span class="axis axis-v"></span>
+          <span class="tick-label north">前</span><span class="tick-label south">后</span>
+          <span class="tick-label west">左</span><span class="tick-label east">右</span>
+          <div class="bubble" id="bubble"><i class="eye"></i><i class="eye wink"></i><i class="mouth"></i></div>
+        </div>
+        <div class="result"><div class="angle"><output id="angle" aria-label="显示角度">—</output><span>°</span></div><h2 id="verdict">等你来歪</h2><p id="quip">仪器已就位，态度很随意。</p></div>
+        <div class="stamp" id="stamp" aria-hidden="true">本所<br><strong>待鉴定</strong></div>
+        <div class="instrument-bottom"><span id="sensor-state">传感器未启动</span><span>结论仅供一乐</span></div>
+      </div>
+      <div class="controls">
+        <button class="primary-button" id="start-button"><span id="start-label">开始测量</span><span aria-hidden="true">↗</span></button>
+        <button class="secondary-button" id="demo-button">先试玩一下</button>
+      </div>
+      <p class="status" id="status" role="status">在手机浏览器打开，点击开始并允许动作感应。</p>
+      <section class="demo-controls" id="demo-controls" aria-label="试玩控制" hidden>
+        <div class="demo-heading"><label for="demo-angle">假装手机歪了</label><output id="actual-angle" for="demo-angle">15°</output></div>
+        <input id="demo-angle" type="range" min="0" max="90" step="0.1" value="15" aria-label="试玩实际倾斜角度">
+        <div class="presets"><button data-angle="0">0°</button><button data-angle="10">10°</button><button data-angle="15">15°</button><button data-angle="20">20°</button><button data-angle="45">45°</button></div>
+        <p>这是试玩数据；点击“开始测量”可切回手机感应。</p>
+      </section>
+    </section>
+  </main>
+  <footer><span>歪理研究所 · 不太正经的科学实验</span><button class="text-button" id="share-button">叫朋友来鉴定 ↗</button></footer>
+
+  <dialog id="about-dialog" aria-labelledby="about-title">
+    <button class="close-button" id="close-about" aria-label="关闭说明">×</button>
+    <p class="eyebrow">本所温馨提示</p><h2 id="about-title">仪器有点歪理。</h2>
+    <p>用安卓手机浏览器打开网页，点击“开始测量”。把手机平放在物体表面，再慢慢倾斜，就能看到结果。若没有反应，请检查浏览器的动作传感器权限，或换用 Chrome 打开。</p>
+    <p>电脑和没有传感器的设备可以点击“先试玩一下”。试玩会明确标注模拟数据，不会读取手机姿态。</p>
+    <details><summary>揭秘：它为什么这么乐观？</summary><p>实际倾斜 0–10° 都显示 0°；超过 10° 后，显示实际角度减去 10°。例如 15° 显示 5°、20° 显示 10°。前后、左右和斜向都算。手机屏幕朝上或朝下，平放都算水平。</p></details>
+    <p class="fine-print">这是娱乐水平仪，不能用于施工或精密测量。传感器数据只在你的浏览器内处理，不会上传。可从浏览器菜单添加到主屏幕。</p>
+  </dialog>
+  <dialog id="share-dialog" aria-labelledby="share-title"><button class="close-button" id="close-share" aria-label="关闭分享">×</button><h2 id="share-title">把歪理传下去。</h2><p>复制这个网址，发给朋友在手机浏览器打开。</p><input id="share-url" readonly aria-label="网页分享地址"><button class="primary-button" id="copy-button">复制链接</button><p id="copy-status" role="status"></p></dialog>
+</body>
+</html>
