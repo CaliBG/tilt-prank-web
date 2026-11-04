@@ -14,6 +14,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.view.Gravity;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
 import android.view.WindowManager;
@@ -29,6 +31,9 @@ public class MainActivity extends Activity implements SensorEventListener {
     private SensorManager manager;
     private Sensor sensor;
     private boolean listening,received,filtered;
+    private boolean showActualAngle=false;
+    private GestureDetector gestures;
+    private TiltMath.Reading lastReading;
     private int backgroundColor=Color.BLACK;
     private LinearLayout root;
     private TextView angle,levelLabel,status;
@@ -38,6 +43,14 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     @Override public void onCreate(Bundle saved){
         super.onCreate(saved);
+        gestures=new GestureDetector(this,new GestureDetector.SimpleOnGestureListener(){
+            @Override public boolean onDown(MotionEvent event){return true;}
+            @Override public boolean onDoubleTap(MotionEvent event){
+                showActualAngle=!showActualAngle;
+                show(lastReading);
+                return true;
+            }
+        });
         manager=(SensorManager)getSystemService(SENSOR_SERVICE);
         sensor=manager.getDefaultSensor(Sensor.TYPE_GRAVITY);
         if(sensor==null)sensor=manager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR);
@@ -76,6 +89,12 @@ public class MainActivity extends Activity implements SensorEventListener {
         View spacer=new View(this);root.addView(spacer,new LinearLayout.LayoutParams(-1,dp(36)));
     }
 
+    @Override public boolean dispatchTouchEvent(MotionEvent event){
+        boolean handled=gestures!=null&&gestures.onTouchEvent(event);
+        boolean dispatched=super.dispatchTouchEvent(event);
+        return handled||dispatched;
+    }
+
     @Override protected void onResume(){super.onResume();startSensors();}
     @Override protected void onPause(){stopSensors();show(null);super.onPause();}
     @Override protected void onDestroy(){stopSensors();super.onDestroy();}
@@ -111,6 +130,8 @@ public class MainActivity extends Activity implements SensorEventListener {
         show(result);
     }
     private void show(TiltMath.Reading result){
+        lastReading=result;
+        result=result==null?null:result.presented(showActualAngle);
         boolean level=result!=null&&result.displayed==0;
         double value=result==null?Double.NaN:result.displayed;
         String next=TiltMath.format(value)+"°";

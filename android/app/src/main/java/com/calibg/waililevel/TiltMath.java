@@ -7,6 +7,9 @@ public final class TiltMath {
         Reading(double actual, double displayed, double x, double y) {
             this.actual=actual; this.displayed=displayed; this.x=x; this.y=y;
         }
+        public Reading presented(boolean showActualAngle) {
+            return new Reading(actual,showActualAngle?actual:display(actual),x,y);
+        }
     }
     public static double display(double actual) {
         if (!Double.isFinite(actual)) return Double.NaN;

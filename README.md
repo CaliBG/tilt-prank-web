@@ -33,7 +33,7 @@ App 名称为“水平仪”，使用苹果指南针图标，来源记录在 `do
 
 ## 手机安装版
 
-网页底部提供 [Android APK 下载](https://calibg.github.io/tilt-prank-web/downloads/Level-1.0.3.apk)。当前是已签名的 1.0.3 Release 版本，Android 8.0 及以上，安装后离线运行；原生源码在 `android/`。
+网页底部提供 [Android APK 下载](https://calibg.github.io/tilt-prank-web/downloads/Level-1.0.4.apk)。当前是已签名的 1.0.4 Release 版本，Android 8.0 及以上，安装后离线运行；原生源码在 `android/`。
 
 iOS 不上架 App Store，网页明确提示联系作者本人，由作者协助安装到 iPhone。
 

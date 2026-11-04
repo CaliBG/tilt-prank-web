@@ -10,4 +10,13 @@ public class TiltMathTest {
  @Test public void faceDown(){assertEquals(0,TiltMath.fromGravity(0,0,-9.8).displayed,0);assertEquals(80,TiltMath.fromGravity(9.8,0,0).displayed,1e-8);}
  @Test public void invalid(){assertNull(TiltMath.fromGravity(0,0,0));assertNull(TiltMath.fromGravity(Double.NaN,0,1));assertEquals("—",TiltMath.format(Double.NaN));}
  @Test public void exactTen(){assertEquals(0,TiltMath.demo(10).displayed,0);}
+ @Test public void normalModeAndRoundTrip(){
+  for(double actual:new double[]{0,8,10,15,20,90}){
+   TiltMath.Reading original=TiltMath.demo(actual), normal=original.presented(true);
+   assertEquals(actual,normal.displayed,1e-8);
+   assertEquals(original.x,normal.x,0);assertEquals(original.y,normal.y,0);
+   assertEquals(original.displayed,normal.presented(false).displayed,1e-8);
+  }
+ }
+
 }
