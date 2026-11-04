@@ -10,7 +10,7 @@
 
 「先试玩一下」使用同一角度函数，明确标注模拟数据。界面数字、表情、状态和水平指示同步使用经过处理的角度。非零值最小显示 0.1°，避免越过 10° 后被四舍五入回零。
 
-App 名称为“水平仪”，使用原创的黑底、白色刻线和绿色气泡图标。矢量源文件位于 `docs/assets/level-icon.svg`。
+App 名称为“水平仪”，使用苹果指南针图标，来源记录在 `docs/assets/icon-source.json`。
 
 传感器信息只在浏览器内处理，无数据上传、分析脚本或外部字体。浏览器菜单可添加到主屏幕；当前需要联网加载，不承诺离线使用。
 
@@ -33,7 +33,7 @@ App 名称为“水平仪”，使用原创的黑底、白色刻线和绿色气�
 
 ## 手机安装版
 
-网页底部提供 [Android APK 下载](https://calibg.github.io/tilt-prank-web/downloads/Level-1.0.2.apk)。当前是已签名的 1.0.2 Release 版本，Android 8.0 及以上，安装后离线运行；原生源码在 `android/`。
+网页底部提供 [Android APK 下载](https://calibg.github.io/tilt-prank-web/downloads/Level-1.0.3.apk)。当前是已签名的 1.0.3 Release 版本，Android 8.0 及以上，安装后离线运行；原生源码在 `android/`。
 
 iOS 不上架 App Store，网页明确提示联系作者本人，由作者协助安装到 iPhone。
 

@@ -76,6 +76,6 @@ test('Android APK download and iOS assisted installation notice', async ({page})
  const downloadEvent=page.waitForEvent('download');
  await page.locator('#apk-download').click();
  const download=await downloadEvent;
- expect(download.suggestedFilename()).toBe('Level-1.0.2.apk');
+ expect(download.suggestedFilename()).toBe('Level-1.0.3.apk');
  expect(await download.failure()).toBeNull();
 });
