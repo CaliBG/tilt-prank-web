@@ -1,6 +1,19 @@
 {
-  "id": "./", "name": "歪理研究所 · 测距仪", "short_name": "测距仪",
-  "lang": "zh-CN", "start_url": "./", "scope": "./",
-  "display": "standalone", "background_color": "#f4f2e9", "theme_color": "#f4f2e9",
-  "icons": [{"src":"./assets/icon.png","sizes":"1024x1024","type":"image/png","purpose":"any"}]
+  "id": "./",
+  "name": "水平仪",
+  "short_name": "水平仪",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f2e9",
+  "theme_color": "#f4f2e9",
+  "icons": [
+    {
+      "src": "./assets/icon.png?v=1.0.2",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }
