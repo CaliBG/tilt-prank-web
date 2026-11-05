@@ -13,4 +13,20 @@
 @media(max-width:760px){.site-header nav{gap:16px}.site-header nav .text-button{font-size:11px}.site-header nav .text-button span{margin-left:4px}.downloads{margin:0 22px 28px;padding:21px 18px;display:block}.download-intro h2{font-size:23px}.download-intro>p:last-child{display:none}.download-platforms{margin-top:20px}.android-download{display:block}.android-download .primary-button{margin-top:14px;justify-content:space-between}.ios-install{display:block}.ios-install p{margin-top:7px}.install-hint{font-size:10px}.download-intro .eyebrow{margin-bottom:8px}.wordmark{font-size:15px}.wordmark small{font-size:8px}}
 @media(max-width:360px){.downloads{margin-inline:16px}.site-header nav{gap:10px}.wordmark{gap:7px;font-size:14px}.brand-mark{width:34px;height:34px;font-size:25px}.wordmark small{letter-spacing:1.5px}}
 h1 .headline-note{display:block;margin-top:28px;font-size:17px;font-weight:650;letter-spacing:1px;line-height:1.6;transform:rotate(-2deg)}
+.app-guide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 12px 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 20px;
+}
+.app-guide h3 { margin: 0; font-size: 17px; }
+.app-guide ol { margin: 0; padding-left: 1.4em; font-size: 14px; line-height: 1.7; }
+.app-guide li + li { margin-top: 6px; }
+.app-guide p { margin: 10px 0 0; font-size: 12px; line-height: 1.6; color: var(--muted); }
+@media (max-width: 760px) {
+  .app-guide { margin-top: 18px; grid-template-columns: 1fr; }
+}
 @media(max-width:760px){h1 .headline-note{margin-top:18px;font-size:13px;letter-spacing:.5px}}
