@@ -89,7 +89,7 @@ test('first visit requires acknowledgement, remembers it and allows reopening', 
  const dialog = page.getByRole('dialog', {name:'免责声明'});
  await expect(dialog).toBeVisible();
  await expect(page.locator('#disclaimer-title')).toBeFocused();
- await expect(dialog).toContainText('超过 10° 后显示实际角度减 10°');
+ await expect(dialog).toContainText('超过 10° 后减 10°');
  await page.keyboard.press('Escape');
  await expect(dialog).toBeVisible();
  expect(await page.locator('#demo-button').evaluate(el => el.closest('body').querySelector(':modal').id)).toBe('disclaimer-dialog');
@@ -116,7 +116,15 @@ test('disclaimer fits narrow screens and remains usable without storage', async 
    const r=el.getBoundingClientRect();
    return r.left>=0 && r.right<=innerWidth && r.top>=0 && r.bottom<=innerHeight && el.scrollWidth<=el.clientWidth;
  })).toBe(true);
+ await expect(page.locator('#accept-disclaimer')).toBeInViewport({ratio:1});
+ expect(await page.locator('.disclaimer-body').evaluate(el => el.scrollHeight <= el.clientHeight + 1)).toBe(true);
  await page.screenshot({path:'.qa/disclaimer-mobile.png'});
+ // Short landscape screens scroll only the copy, keeping the action visible.
+ await page.setViewportSize({width:568,height:320});
+ await expect(page.locator('#accept-disclaimer')).toBeInViewport({ratio:1});
+ await page.locator('.disclaimer-body').evaluate(el => { el.scrollTop = el.scrollHeight; });
+ await expect(page.locator('#accept-disclaimer')).toBeInViewport({ratio:1});
+ await page.screenshot({path:'.qa/disclaimer-landscape.png'});
  await page.locator('#accept-disclaimer').click();
  await expect(page.locator('#disclaimer-dialog')).not.toBeVisible();
  await page.locator('#demo-button').click();
