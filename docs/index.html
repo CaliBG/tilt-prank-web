@@ -72,7 +72,22 @@
       </div>
     </section>
   </section>
-  <footer><span>歪理研究所 · 不太正经的科学实验</span><button class="text-button" id="share-button">叫朋友来鉴定 ↗</button></footer>
+  <footer><span>歪理研究所 · 不太正经的科学实验</span><div class="footer-actions"><button class="text-button" id="disclaimer-button">免责声明</button><button class="text-button" id="share-button">叫朋友来鉴定 ↗</button></div></footer>
+
+  <dialog id="disclaimer-dialog" aria-labelledby="disclaimer-title" aria-describedby="disclaimer-intro">
+    <p class="eyebrow">开玩笑之前，先认真一下</p>
+    <h2 id="disclaimer-title" tabindex="-1" autofocus>免责声明</h2>
+    <p id="disclaimer-intro">本网页及提供下载、协助安装的「水平仪」App 仅供娱乐和朋友间的趣味互动。</p>
+    <ul class="disclaimer-notes">
+      <li><strong>读数会被调整。</strong>恶搞模式下，实际倾斜 0–10° 均显示 0°，超过 10° 后显示实际角度减 10°。</li>
+      <li><strong>正常模式也不是专业仪器。</strong>App 内双击可切换正常模式与恶搞模式，切换没有提示。正常模式仍受手机传感器与设备误差影响。</li>
+      <li><strong>请勿用于实际测量或安全判断。</strong>包括施工、装修、设备安装、精密测量等，请使用经过校准的正规测量工具。</li>
+      <li><strong>玩笑要有分寸。</strong>请勿让他人依赖这些读数做决定，避免造成财产损失或人身伤害。本项目与 Apple、手机厂商及其官方测量工具无关联。</li>
+    </ul>
+    <p class="fine-print">确认记录仅保存在当前浏览器。你可以随时从网页底部再次查看本说明。</p>
+    <button class="primary-button" id="accept-disclaimer">我已了解，仅作娱乐使用 <span aria-hidden="true">→</span></button>
+  </dialog>
+  <script src="./disclaimer.js"></script>
 
   <dialog id="about-dialog" aria-labelledby="about-title">
     <button class="close-button" id="close-about" aria-label="关闭说明">×</button>

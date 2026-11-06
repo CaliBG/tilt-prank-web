@@ -30,3 +30,17 @@ h1 .headline-note{display:block;margin-top:28px;font-size:17px;font-weight:650;l
   .app-guide { margin-top: 18px; grid-template-columns: 1fr; }
 }
 @media(max-width:760px){h1 .headline-note{margin-top:18px;font-size:13px;letter-spacing:.5px}}
+
+.footer-actions { display: flex; align-items: center; gap: 20px; }
+html.disclaimer-open { overflow: hidden; }
+#disclaimer-dialog { max-width: 580px; overflow-y: auto; overscroll-behavior: contain; }
+#disclaimer-dialog .eyebrow { margin-bottom: 12px; }
+#disclaimer-title:focus { outline: none; }
+.disclaimer-notes { padding-left: 1.3em; font-size: 14px; line-height: 1.8; }
+.disclaimer-notes li + li { margin-top: 12px; }
+#accept-disclaimer { width: 100%; white-space: normal; text-align: left; }
+@media (max-width: 760px) {
+  footer { flex-wrap: wrap; }
+  .footer-actions { gap: 18px; }
+  #disclaimer-dialog { padding: 24px 20px; max-height: 90dvh; }
+}
