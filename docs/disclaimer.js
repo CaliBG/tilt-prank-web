@@ -1,5 +1,5 @@
 (() => {
-  const storageKey = 'waili-disclaimer-v1';
+  const storageKey = 'waili-disclaimer-v2';
   const dialog = document.getElementById('disclaimer-dialog');
   function openDisclaimer() {
     dialog.showModal();
