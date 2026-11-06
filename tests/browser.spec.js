@@ -84,7 +84,8 @@ test('Android APK download and iOS assisted installation notice', async ({page})
  expect(await download.failure()).toBeNull();
 });
 
-test('first visit requires acknowledgement, remembers it and allows reopening', async ({page}) => {
+test('every visit requires acknowledgement even with a previous acceptance', async ({page, context}) => {
+ await page.addInitScript(() => localStorage.setItem('waili-disclaimer-v2', 'accepted'));
  await page.goto('/');
  const dialog = page.getByRole('dialog', {name:'免责声明'});
  await expect(dialog).toBeVisible();
@@ -96,7 +97,12 @@ test('first visit requires acknowledgement, remembers it and allows reopening', 
  await page.locator('#accept-disclaimer').click();
  await expect(dialog).not.toBeVisible();
  await page.reload();
- await expect(dialog).not.toBeVisible();
+ await expect(dialog).toBeVisible();
+ await page.locator('#accept-disclaimer').click();
+ const reopened = await context.newPage();
+ await reopened.goto('/');
+ await expect(reopened.locator('#disclaimer-dialog')).toBeVisible();
+ await reopened.close();
  await page.locator('#disclaimer-button').click();
  await expect(dialog).toBeVisible();
  await page.locator('#accept-disclaimer').click();
